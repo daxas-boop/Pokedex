@@ -1,0 +1,32 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex para r-arg-programa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress-dev": "cypress dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daxas-boop/Pokedex.git"
+  },
+  "author": "daxas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daxas-boop/Pokedex/issues"
+  },
+  "homepage": "https://github.com/daxas-boop/Pokedex#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "cypress": "^4.10.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "http-server": "^0.12.3"
+  }
+}
