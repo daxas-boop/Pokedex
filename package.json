@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/daxas-boop/Pokedex#readme",
   "dependencies": {
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^4.5.0",
+    "ecstatic": "^4.1.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.6.1",
