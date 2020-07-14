@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pokedex</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
+</head>
+
+
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <input class="form-control mr-sm-2 w-25" type="search" placeholder="Buscar..." aria-label="Search">
+        <button type="button" class="btn btn-info">Buscar</button>
+      </div>
+    </div>
+
+    <div class="container">
+            <div class="row mt-3 justify-content-center">
+                <div class="col columna1">
+                        <div class="row justify-content-center">
+                          <div class="col-auto">
+                          <table class="table-responsive table-striped">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">Pokemon</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="body-tabla">
+                                      </tbody>
+                                </table>
+                              </div>
+                            </div>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination align-items-end justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" id="anterior" href="#" tabindex="-1">Anterior</a>
+                                    </li>
+                                        <a class="page-link" id="siguiente" href="#">Siguiente</a>
+                                    </li>
+                                    </ul>
+                                </nav>
+                          
+                  </div>
+                <div class="col columna2"></div>
+            </div>
+    </div>
+
+
+
+
+
+    <script src='src/index.js'></script>
+</body>
+</html>
