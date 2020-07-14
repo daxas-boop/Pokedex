@@ -13,8 +13,20 @@ body,html{
 }
 td{
     font-weight: bold;
+    background-color: green;
+}
+td:hover{
+    cursor:pointer;
 }
 .table-responsive{
     border-collapse: separate;
     border-spacing: 15px 1px;
+}
+.imagen{
+    width: 25vh;
+    height: 50hv;
+}
+p{
+    width:25vh;
+    margin: 0px 0px 0px !important;
 }
