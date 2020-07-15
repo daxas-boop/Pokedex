@@ -6,8 +6,8 @@
     <title>Pokedex</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <!-- <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
 </head>
     <div class="container">
       <div class="d-flex justify-content-center">
@@ -33,7 +33,7 @@
                               </div>
                             </div>
                                 <nav aria-label="Page navigation example">
-                                    <ul class="pagination align-items-end justify-content-center">
+                                    <ul class="pagination align-items-end justify-content-center botones">
                                       <li id="botonAnterior" class="page-item disabled">
                                         <a class="page-link" id="anterior" href="#" tabindex="-1">Anterior</a>
                                     </li>
@@ -43,7 +43,14 @@
                                     </ul>
                                 </nav>
                   </div>
-                <div id="columna2" class="col columna2"></div>
+                <div id="columna2" class="col columna2">
+                  <div id="row" class="row h-100 justify-content-center">
+                  <div id="contenedor" class="col-auto justify-content-center">
+                    <div id="imagen-poke"></div>
+                    <div id="tipo-poke" class="col-auto align-items-start"></div>
+                    <div id="info-poke"></div>
+                  </div>
+                </div>
             </div>
     </div>
     <script src='src/index.js'></script>
