@@ -31,8 +31,6 @@ function mostrarImagenPokemon(pokemon) {
 function mostrarTipoPokemon(pokemon) {
   const $contenedorTipo = document.querySelector('#tipo-poke');
   $contenedorTipo.innerHTML = '';
-  const $tipoPokemon = document.createElement('h5');
-  $tipoPokemon.classList.add('justify-content-center');
   pokemon.types.forEach((type) => {
     const $tipo = document.createElement('span');
     $tipo.classList.add('badge', 'badge-pill');

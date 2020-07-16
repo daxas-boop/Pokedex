@@ -15,7 +15,9 @@ function mostrarPokemonClickeado() {
     $pokemon.addEventListener('click', async () => {
       mostrarCargandoCard();
       const pokemon = await obtenerPokemones(`https://pokeapi.co/api/v2/pokemon/${$pokemon.dataset.pokemon}`);
-      mostrarCartaPokemon(pokemon);
+      if (pokemon !== undefined) {
+        mostrarCartaPokemon(pokemon);
+      }
     });
   });
 }
@@ -27,7 +29,9 @@ async function validarSearchBar(searchBarInput) {
     alert('Ingrese un numero o el nombre de un pokemon');
   } else {
     const pokemon = await obtenerPokemones(`https://pokeapi.co/api/v2/pokemon/${searchBarInput}`);
-    mostrarCartaPokemon(pokemon);
+    if (pokemon !== undefined) {
+      mostrarCartaPokemon(pokemon);
+    }
   }
 }
 
