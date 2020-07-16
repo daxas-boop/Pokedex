@@ -84,6 +84,9 @@ function configurarBotones(pokemones) {
   $anterior.addEventListener('click', () => {
     if (URLAnterior === null) {
       document.querySelector('#botonAnterior').classList.add('disabled');
+    } if (URLAnterior === 'https://pokeapi.co/api/v2/pokemon/?offset=956&limit=4') {
+      URLAnterior = 'https://pokeapi.co/api/v2/pokemon/?offset=940&limit=20';
+      actualizar(URLAnterior);
     } else {
       document.querySelector('#botonAnterior').classList.remove('disabled');
       actualizar(URLAnterior);
@@ -95,6 +98,7 @@ function configurarBotones(pokemones) {
       document.querySelector('#botonSiguiente').classList.add('disabled');
     } else {
       document.querySelector('#botonSiguiente').classList.remove('disabled');
+      console.log(URLSiguiente);
       actualizar(URLSiguiente);
     }
   });
