@@ -98,7 +98,6 @@ function configurarBotones(pokemones) {
       document.querySelector('#botonSiguiente').classList.add('disabled');
     } else {
       document.querySelector('#botonSiguiente').classList.remove('disabled');
-      console.log(URLSiguiente);
       actualizar(URLSiguiente);
     }
   });
