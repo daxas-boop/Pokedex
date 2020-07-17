@@ -5,9 +5,7 @@ import {
   mostrarCargandoLista,
 } from './ui/ui.js';
 
-import {
-  obtenerPokemones,
-} from './API/service.js';
+import obtenerPokemones from './API/service.js';
 
 function mostrarPokemonClickeado() {
   const $pokemones = document.querySelectorAll('td');
