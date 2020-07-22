@@ -10,11 +10,15 @@ import {
 // eslint-disable-next-line import/extensions
 } from './ui/carta.js';
 
-import {
-  obtenerPokemones,
-  obtenerPokemon,
 // eslint-disable-next-line import/extensions
-} from './servicios/service.js';
+import configurarPaginador from './ui/paginador.js';
+
+import {
+  cargarPokemon,
+  cargarPokemones,
+  obtenerParametrosDeURL,
+// eslint-disable-next-line import/extensions
+} from './servicios/servicios.js';
 
 async function validarSearchBar(searchBarInput) {
   if (/[^A-Za-z0-9]+/g.test(searchBarInput)) {
@@ -24,7 +28,7 @@ async function validarSearchBar(searchBarInput) {
     // eslint-disable-next-line no-alert
     alert('Ingrese un numero o el nombre de un pokemon');
   } else {
-    const pokemon = await obtenerPokemon(searchBarInput);
+    const pokemon = await cargarPokemon(searchBarInput);
     if (pokemon !== undefined) {
       mostrarCartaPokemon(pokemon);
     }
@@ -49,49 +53,34 @@ async function cambiarPagina(pagina) {
   const POKEMONES_POR_PAGINA = 20;
   let paginaActual;
   let offset;
-  const limit = POKEMONES_POR_PAGINA;
-  offset = POKEMONES_POR_PAGINA * (pagina - 1);
-  paginaActual = pagina;
+  let limit = POKEMONES_POR_PAGINA;
+
+  if (typeof pagina === 'number') {
+    offset = POKEMONES_POR_PAGINA * (pagina - 1);
+    paginaActual = pagina;
+  } else {
+    const parametros = obtenerParametrosDeURL(pagina);
+    offset = parametros.offset;
+    limit = parametros.limit;
+    paginaActual = Math.ceil(parametros.offset / parametros.limit) + 1;
+  }
+
   mostrarCargandoLista('Cargando...');
-  const respuesta = await obtenerPokemones(offset, limit);
+
+  const respuesta = await cargarPokemones(offset, limit);
   const {
     next: urlSiguiente,
     previous: urlAnterior,
     count: totalPokemones,
   } = respuesta;
+  const totalPaginas = Math.ceil(totalPokemones / POKEMONES_POR_PAGINA);
+
   mostrarListaPokemones(respuesta, async (nombre) => {
     mostrarCargandoCard('Cargando...');
-    mostrarCartaPokemon(await obtenerPokemon(nombre));
+    mostrarCartaPokemon(await cargarPokemon(nombre));
   });
 
-  configurarAnteriorSiguiente(paginaActual, totalPokemones, POKEMONES_POR_PAGINA);
-}
-
-function configurarAnteriorSiguiente(paginaActual, totalPokemones, POKEMONES_POR_PAGINA) {
-  const $siguiente = document.querySelector('#botonSiguiente');
-  const $anterior = document.querySelector('#botonAnterior');
-  const totalPaginas = Math.ceil(totalPokemones / POKEMONES_POR_PAGINA);
-  $siguiente.onclick = () => {
-    if (paginaActual < totalPaginas) {
-      $siguiente.classList.remove('disabled');
-      // eslint-disable-next-line no-param-reassign
-      paginaActual += 1;
-      cambiarPagina(paginaActual);
-      $anterior.classList.remove('disabled');
-    } else {
-      $siguiente.classList.add('disabled');
-    }
-  };
-  $anterior.onclick = () => {
-    if (paginaActual < 2) {
-      $anterior.classList.add('disabled');
-      // eslint-disable-next-line no-param-reassign
-    } else {
-      $anterior.classList.remove('disabled');
-      paginaActual -= 1;
-      cambiarPagina(paginaActual);
-    }
-  };
+  configurarPaginador(totalPaginas, paginaActual, urlSiguiente, urlAnterior, cambiarPagina);
 }
 
 async function inicializar() {
