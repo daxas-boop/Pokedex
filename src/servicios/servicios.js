@@ -12,14 +12,14 @@ import {
 // eslint-disable-next-line import/extensions
 } from './api.js';
 
-import mapeador from '../mapeador/mapeador.js';
+import { mapeadorPokemon, mapeadorListaPokemones } from '../mapeador/mapeador.js';
 
 export async function cargarPokemon(nombre) {
   try {
     return cargarPokemonDeCache(nombre);
   } catch (e) {
     const respuesta = await obtenerPokemon(nombre);
-    const pokemon = mapeador(respuesta); // agrego mapeador
+    const pokemon = mapeadorPokemon(respuesta);
     guardarPokemonCache(nombre, pokemon);
     return pokemon;
   }
@@ -29,7 +29,8 @@ export async function cargarPokemones(offset, limit) {
   try {
     return cargarPokemonesDeCache(offset, limit);
   } catch (e) {
-    const pokemones = await obtenerPokemones(offset, limit);
+    const respuesta = await obtenerPokemones(offset, limit);
+    const pokemones = mapeadorListaPokemones(respuesta);
     guardarPokemonesCache(offset, limit, pokemones);
     return pokemones;
   }

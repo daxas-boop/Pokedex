@@ -12,6 +12,7 @@ function mostrarImagenPokemon(pokemon) {
 }
 
 function mostrarTipoPokemon(pokemon) {
+  console.log(pokemon);
   const $contenedorTipo = document.querySelector('#tipo-poke');
   $contenedorTipo.innerHTML = '';
   pokemon.tipos.forEach((tipo) => {

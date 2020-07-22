@@ -1,8 +1,8 @@
 export function mostrarListaPokemones(pokemones, callBackFunction = () => {}) {
   const $bodytabla = document.querySelector('#body-tabla');
   $bodytabla.innerHTML = '';
-
-  pokemones.results.forEach((pokemon) => {
+console.log(pokemones);
+  pokemones.pokemon.forEach((pokemon) => {
     const $lista = document.createElement('tr');
     const $numero = document.createElement('th');
     $numero.setAttribute = ('scope', 'row');

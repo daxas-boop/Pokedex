@@ -69,9 +69,9 @@ async function cambiarPagina(pagina) {
 
   const respuesta = await cargarPokemones(offset, limit);
   const {
-    next: urlSiguiente,
-    previous: urlAnterior,
-    count: totalPokemones,
+    urlSiguiente,
+    urlAnterior,
+    totalPokemones,
   } = respuesta;
   const totalPaginas = Math.ceil(totalPokemones / POKEMONES_POR_PAGINA);
 
